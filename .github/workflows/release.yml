@@ -49,6 +49,9 @@ jobs:
         # You can remove the one that doesn't apply to your app to speed up the workflow a bit.
 
       - name: install frontend dependencies
+        uses: pnpm/action-setup@v3
+        with:
+          version: latest
         run: pnpm install --frozen-lockfile
 
       - uses: tauri-apps/tauri-action@v0

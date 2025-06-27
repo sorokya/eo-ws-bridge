@@ -145,6 +145,7 @@ impl WS {
 
 fn main() {
     tauri::Builder::default()
+        .plugin(tauri_plugin_process::init())
         .manage(Arc::new(Mutex::new(ProxyState::default())))
         .invoke_handler(tauri::generate_handler![start_proxy, stop_proxy])
         .run(tauri::generate_context!())

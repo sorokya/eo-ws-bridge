@@ -28,6 +28,12 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: setup pnpm
+        uses: pnpm/action-setup@v3
+        with:
+          version: latest
+          run_install: false
+
       - name: setup node
         uses: actions/setup-node@v4
         with:
@@ -48,11 +54,8 @@ jobs:
         # webkitgtk 4.0 is for Tauri v1 - webkitgtk 4.1 is for Tauri v2.
         # You can remove the one that doesn't apply to your app to speed up the workflow a bit.
 
-      - name: install frontend dependencies
-        uses: pnpm/action-setup@v3
-        with:
-          version: latest
-          run_install: true
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
 
       - uses: tauri-apps/tauri-action@v0
         env:

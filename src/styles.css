@@ -1,0 +1,66 @@
+body {
+  font-family: sans-serif;
+  padding: 0;
+  max-width: 400px;
+  margin: auto;
+  background: rgb(22, 22, 22);
+  color: #ededed;
+}
+
+label {
+  display: block;
+  margin-top: 0.5rem;
+  font-weight: bold;
+}
+
+input {
+  width: 100%;
+  padding: 0.5rem;
+  margin-top: 0.25rem;
+  box-sizing: border-box;
+  background: #424242;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+}
+
+.button-row {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+button {
+  flex: 1;
+  padding: 0.5rem;
+  cursor: pointer;
+  background: #254772;
+  color: #fff;
+  border: 1px solid #000;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button[disabled] {
+  opacity: .6;
+  cursor: not-allowed;
+  background: #254772 !important;
+}
+
+button:hover, button:active {
+  background: #1b3252;
+}
+
+details {
+  margin-top: 1.5rem;
+}
+
+summary {
+  font-weight: bold;
+  cursor: pointer;
+  outline: none;
+}
+
+.advanced input {
+  margin-bottom: 0.5rem;
+}

@@ -67,3 +67,14 @@ jobs:
           releaseDraft: true
           prerelease: false
           args: ${{ matrix.args }}
+      
+      - name: Build Portable Binaries (Windows)
+        if: ${{ matrix.runner == 'windows-latest' }}
+        run: |
+          cargo build --target ${{ matrix.target }}
+          cargo build --release --target ${{ matrix.target }}
+          mv ./target/${{ matrix.target }}/release/eo-ws-bridge.exe ./target/${{ matrix.target }}/release/eo-ws-bridge_${{ github.ref_name }}_x64-portable.exe
+
+      - name: Upload Portable Binaries (Windows)
+        if: ${{ matrix.runner == 'windows-latest' }}
+        run: bash -c 'gh release upload ${{ github.ref_name }} ./target/${{ matrix.target }}/release/eo-ws-bridge${{ github.ref_name }}_x64-portable.exe --clobber'
